@@ -11,7 +11,14 @@ export default function Home() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className='flex min-h-screen mx-auto border-red-500 border-4'>
+				{/* Nav */}
 				<Nav />
+
+				{/* Hamburger menu for small screens */}
+
+				{/* Content */}
+
+				{/* Footer */}
 			</main>
 		</>
 	);
