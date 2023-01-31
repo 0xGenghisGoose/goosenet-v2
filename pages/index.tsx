@@ -6,7 +6,7 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>Goosenet</title>
+				<title>goosenet</title>
 				<meta name='description' content='Goosenet by 0xGenghisGoose' />
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
