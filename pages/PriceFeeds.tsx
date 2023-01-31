@@ -27,12 +27,12 @@ export default function PriceFeeds() {
 				{/* Nav */}
 				<Nav />
 
-				<div className='flex border-2 border-emerald-600 justify-center p-2'>
-					<ul className='border border-pink-400 w-2/3 text-center text-lg'>
+				<div className='flex border-2 border-emerald-600 justify-center'>
+					<div className='border p-2 m-4 border-pink-400 text-center text-lg min-w-screen'>
 						{data?.map((token: any) => (
 							<FeedCard key={token.id} token={token}></FeedCard>
 						))}
-					</ul>
+					</div>
 				</div>
 
 				{/* Footer */}
