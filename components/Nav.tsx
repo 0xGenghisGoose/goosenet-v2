@@ -3,6 +3,8 @@ import SearchBar from './SearchBar';
 // To Do:
 // Add route nav
 // Sticky?
+// Why arent hover working?
+// Add a little padding under logo to make it line up correctly?
 
 export default function Nav() {
 	return (
@@ -10,9 +12,9 @@ export default function Nav() {
 			<nav className='flex items-center border-2 border-purple-400'>
 				<img src='/goosenet-01.png' className='h-10'></img>
 				<ul className='flex justify-left items-center border-2 border-green-400 space-x-16 min-w-1/3 p-4 ml-auto'>
-					<li className=''>Projects</li>
-					<li>Price Feed</li>
-					<li>Articles</li>
+					<li className='hover:outline-red-500'>Projects</li>
+					<li className='hover:outline-red-500'>Price Feeds</li>
+					<li className='hover:outline-red-500'>Articles</li>
 					<SearchBar />
 				</ul>
 			</nav>
