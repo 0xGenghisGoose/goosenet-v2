@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import Nav from '@/components/Nav';
 import useSWR from 'swr';
+import Nav from '@/components/Nav';
+import FeedCard from '@/components/FeedCard';
 
 // API call to CoinGecko - maps coins out & passes data to individual component - when token selected, routed to own personal page w/ dynamic routing
 
@@ -27,11 +28,9 @@ export default function PriceFeeds() {
 				<Nav />
 
 				<div className='flex border-2 border-emerald-600 justify-center p-2'>
-					<ul>
+					<ul className='border border-pink-400 w-2/3 text-center text-lg'>
 						{data?.map((token: any) => (
-							<li key={token.id} className='text-white h-5'>
-								{token.name} - {token.symbol} - {token.market_cap}
-							</li>
+							<FeedCard key={token.id} token={token}></FeedCard>
 						))}
 					</ul>
 				</div>
