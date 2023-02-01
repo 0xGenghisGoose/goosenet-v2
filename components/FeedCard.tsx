@@ -3,8 +3,9 @@ import { parseNum } from '@/utils';
 type TokenResponse = {
 	id: string;
 	symbol: string;
+	name: string;
 	image: string;
-	current_price: string;
+	current_price: number;
 	market_cap_rank: number;
 	high_24h: number;
 	low_24h: number;
@@ -13,8 +14,7 @@ type TokenResponse = {
 	fully_diluted_valuation: number;
 };
 
-// To Do: Fix token response type
-export default function FeedCard({ token }: any) {
+export default function FeedCard({ token }: { token: TokenResponse }) {
 	return (
 		<>
 			<div
@@ -29,7 +29,7 @@ export default function FeedCard({ token }: any) {
 
 				{/* Name & Symbol */}
 				<div className='flex items-center text-center justify-center mr-0 w-[25%]'>
-					{token?.name} ({token?.symbol})
+					{token?.name} ({token?.symbol.toUpperCase()})
 				</div>
 
 				{/* Current Price Data */}
