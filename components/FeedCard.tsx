@@ -19,7 +19,8 @@ export default function FeedCard({ token }) {
 				{/* Image */}
 				<img
 					src={token.image}
-					className='h-8 border flex justify-center border-green-400 mr-24'
+					alt=''
+					className='h-10 border flex justify-center border-green-400 mr-24'
 				/>
 
 				{/* Name & Symbol */}
@@ -29,14 +30,29 @@ export default function FeedCard({ token }) {
 
 				{/* Current Price Data */}
 				<div className='border border-red-500 mr-24 w-[30%]'>
-					Current Price: ${token?.current_price.toFixed(2)}
+					Current Price: $
+					{Number(parseFloat(token?.current_price).toFixed(2)).toLocaleString(
+						'en'
+					)}
 				</div>
 
 				{/* High/Low Price Data */}
 				<div className='flex-col w-7/12'>
-					High (24h): ${token?.high_24h.toFixed(2)}
+					High (24h): $
+					{Number(parseFloat(token?.high_24h).toFixed(2)).toLocaleString('en')}
 					<br />
-					Low (24h): ${token?.low_24h.toFixed(2)}
+					Low (24h): $
+					{Number(parseFloat(token?.low_24h).toFixed(2)).toLocaleString('en')}
+					<br />
+					{token?.price_change_percentage_24h > 0 ? (
+						<span className='text-green-400'>
+							{token?.price_change_percentage_24h.toFixed(2)}%
+						</span>
+					) : (
+						<span className='text-red-500'>
+							{token?.price_change_percentage_24h.toFixed(2)}%
+						</span>
+					)}
 				</div>
 			</div>
 		</>

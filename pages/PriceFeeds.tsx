@@ -27,7 +27,7 @@ export default function PriceFeeds() {
 				{/* Nav */}
 				<Nav />
 
-				<div className='flex border-2 border-emerald-600 justify-center'>
+				<div className=' border-2 border-emerald-600 justify-center'>
 					<div className='border p-2 m-4 border-pink-400 text-center text-lg min-w-screen'>
 						{data?.map((token: any) => (
 							<FeedCard key={token.id} token={token}></FeedCard>
