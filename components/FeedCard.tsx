@@ -1,3 +1,5 @@
+import { parseNum } from '@/utils';
+
 type TokenResponse = {
 	id: string;
 	symbol: string;
@@ -8,6 +10,7 @@ type TokenResponse = {
 	low_24h: number;
 	price_change_24h: number;
 	price_change_percentage_24h: number;
+	fully_diluted_valuation: number;
 };
 
 export default function FeedCard({ token }) {
@@ -30,10 +33,10 @@ export default function FeedCard({ token }) {
 
 				{/* Current Price Data */}
 				<div className='border border-red-500 mr-24 w-[30%]'>
-					Current Price: $
-					{Number(parseFloat(token?.current_price).toFixed(2)).toLocaleString(
+					Current Price: ${parseNum(token.current_price)}
+					{/* {Number(parseFloat(token?.current_price).toFixed(2)).toLocaleString(
 						'en'
-					)}
+					)} */}
 				</div>
 
 				{/* High/Low Price Data */}
