@@ -27,8 +27,16 @@ export default function PriceFeeds() {
 				{/* Nav */}
 				<Nav />
 
-				<div className=' border-2 border-emerald-600 justify-center'>
-					<div className='border p-2 m-4 border-pink-400 text-center text-lg min-w-screen'>
+				<h2 className='text-center text-4xl text-red-500 font-bold tracking-widest pt-4'>
+					PRICE FEEDS
+				</h2>
+				<br />
+				<h4 className='text-center text-xl font-semibold tracking-wider pb-4 m-6 border-b border-dotted border-slate-500/60'>
+					Top <span className='text-red-500'>100</span> Tokens By Market Cap
+				</h4>
+
+				<div className='justify-center'>
+					<div className='p-2 m-4 text-center text-lg min-w-screen'>
 						{data?.map((token: any) => (
 							<FeedCard key={token.id} token={token}></FeedCard>
 						))}

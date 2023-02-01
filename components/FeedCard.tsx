@@ -13,39 +13,35 @@ type TokenResponse = {
 	fully_diluted_valuation: number;
 };
 
-export default function FeedCard({ token }) {
+// To Do: Fix token response type
+export default function FeedCard({ token }: any) {
 	return (
 		<>
 			<div
 				id={token.id}
-				className='text-white items-center border border-orange-400 p-4 overflow-auto flex content-around'>
+				className='text-white items-center border-b border-red-400/75 p-4 overflow-auto flex content-around hover:bg-slate-700'>
 				{/* Image */}
 				<img
 					src={token.image}
 					alt=''
-					className='h-10 border flex justify-center border-green-400 mr-24'
+					className='h-10 flex justify-center mr-24'
 				/>
 
 				{/* Name & Symbol */}
-				<div className='flex items-center text-center justify-center mr-0 border border-purple-300 w-[25%]'>
+				<div className='flex items-center text-center justify-center mr-0 w-[25%]'>
 					{token?.name} ({token?.symbol})
 				</div>
 
 				{/* Current Price Data */}
-				<div className='border border-red-500 mr-24 w-[30%]'>
+				<div className='mr-24 w-[30%]'>
 					Current Price: ${parseNum(token.current_price)}
-					{/* {Number(parseFloat(token?.current_price).toFixed(2)).toLocaleString(
-						'en'
-					)} */}
 				</div>
 
 				{/* High/Low Price Data */}
-				<div className='flex-col w-7/12'>
-					High (24h): $
-					{Number(parseFloat(token?.high_24h).toFixed(2)).toLocaleString('en')}
+				<div className='flex-col w-3/12'>
+					High (24h): ${parseNum(token?.high_24h)}
 					<br />
-					Low (24h): $
-					{Number(parseFloat(token?.low_24h).toFixed(2)).toLocaleString('en')}
+					Low (24h): ${parseNum(token?.low_24h)}
 					<br />
 					{token?.price_change_percentage_24h > 0 ? (
 						<span className='text-green-400'>
