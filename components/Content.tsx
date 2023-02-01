@@ -1,3 +1,8 @@
+// NEXT TO DO:
+// Hook up db + boilerplate
+// Create entities for: Article, Author, Project
+// Set up article component && article list page
+
 export default function Content() {
 	return (
 		<>
