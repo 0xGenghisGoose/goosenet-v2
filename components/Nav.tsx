@@ -16,7 +16,9 @@ export default function Nav() {
 							Price Feed
 						</Link>
 					</li>
-					<li className='hover:text-red-500'>Articles</li>
+					<li className='hover:text-red-500'>
+						<Link href='/ArticleList'>Articles</Link>
+					</li>
 					<SearchBar />
 				</ul>
 			</nav>
