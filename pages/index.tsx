@@ -3,6 +3,9 @@ import Nav from '@/components/Nav';
 import Content from '@/components/Content';
 import Footer from '@/components/Footer';
 
+// For testing purposes only
+import TestNav from '@/components/TestNav';
+
 export default function Home() {
 	return (
 		<>
