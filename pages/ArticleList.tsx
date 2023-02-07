@@ -2,17 +2,37 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import ArticleCard from '@/components/ArticleCard';
 
 import {
 	doc,
+	getDocs,
 	onSnapshot,
 	orderBy,
 	query,
 	collection,
+	DocumentData,
 } from 'firebase/firestore';
 import { db } from '@/firebase';
 
 export default function ArticleList() {
+	const [articles, setArticles] = useState<DocumentData[]>([]);
+
+	useEffect(() => {
+		async function work() {
+			const snappy = await getDocs(collection(db, 'articles'));
+			setArticles(snappy.docs);
+		}
+		work();
+	}, []);
+
+	// useEffect(() => {
+	// 	onSnapshot(
+	// 		query(collection(db, 'articles'), orderBy('timestamp', 'desc')),
+	// 		(snapshot) => setArticles(snapshot.docs)
+	// 	);
+	// }, []);
+
 	return (
 		<>
 			<Head>
@@ -30,13 +50,17 @@ export default function ArticleList() {
 					LATEST ARTICLES
 				</h2>
 
-				<div className='justify-center'>
-					<div className='p-2 pb-8 m-4 text-center text-lg min-w-screen'>
-						{/* {data?.map((token: any) => (
-							<FeedCard key={token.id} token={token}></FeedCard>
-						))} */}
+				{articles.length > 0 && (
+					<div className='justify-center text-center'>
+						<div className='p-8 pb-12 m-4 mx-32 text-center'>
+							{articles.map((article: any) => (
+								<ArticleCard
+									key={article.data().id}
+									articles={article}></ArticleCard>
+							))}
+						</div>
 					</div>
-				</div>
+				)}
 
 				{/* Footer */}
 				<Footer />
