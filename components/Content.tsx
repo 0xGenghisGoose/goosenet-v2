@@ -1,5 +1,5 @@
 // NEXT TO DO:
-// Hook up db + boilerplate
+// Hook up db + boilerplate = in progress
 // Create entities for: Article, Author, Project
 // Set up article component && article list page
 
