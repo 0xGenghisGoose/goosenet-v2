@@ -8,9 +8,8 @@ import { getDocs, collection, DocumentData } from 'firebase/firestore';
 import { db } from '@/firebase';
 
 // To Do:
-// Make list of articles look good
-// Add hover effects, borders, etc
 // Get banner images in there & sizing appropriately
+// Make divs bigger vertically
 // How to get estimated reading times? Would like to incorporate
 
 export default function ArticleList() {
@@ -44,7 +43,7 @@ export default function ArticleList() {
 				{articles.length > 0 && (
 					<div className='justify-center text-center'>
 						<div className='p-8 pb-12 m-4 mx-32 text-center'>
-							{articles.map((article: any) => (
+							{articles.map((article: DocumentData) => (
 								<ArticleCard
 									key={article.data().id}
 									articles={article}></ArticleCard>
