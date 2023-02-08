@@ -4,34 +4,25 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import ArticleCard from '@/components/ArticleCard';
 
-import {
-	doc,
-	getDocs,
-	onSnapshot,
-	orderBy,
-	query,
-	collection,
-	DocumentData,
-} from 'firebase/firestore';
+import { getDocs, collection, DocumentData } from 'firebase/firestore';
 import { db } from '@/firebase';
+
+// To Do:
+// Make list of articles look good
+// Add hover effects, borders, etc
+// Get banner images in there & sizing appropriately
+// How to get estimated reading times? Would like to incorporate
 
 export default function ArticleList() {
 	const [articles, setArticles] = useState<DocumentData[]>([]);
 
 	useEffect(() => {
 		async function work() {
-			const snappy = await getDocs(collection(db, 'articles'));
+			const snappy = await getDocs(collection(db, 'articles')); // will I need to order by timestamp?
 			setArticles(snappy.docs);
 		}
 		work();
 	}, []);
-
-	// useEffect(() => {
-	// 	onSnapshot(
-	// 		query(collection(db, 'articles'), orderBy('timestamp', 'desc')),
-	// 		(snapshot) => setArticles(snapshot.docs)
-	// 	);
-	// }, []);
 
 	return (
 		<>

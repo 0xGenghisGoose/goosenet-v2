@@ -1,3 +1,5 @@
+// To Do: type article response & get rid of any
+
 export default function ArticleCard({ articles }: any) {
 	return (
 		<>
