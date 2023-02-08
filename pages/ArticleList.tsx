@@ -16,17 +16,17 @@ export default function ArticleList() {
 	const [articles, setArticles] = useState<DocumentData[]>([]);
 
 	useEffect(() => {
-		async function work() {
+		async function getArticles() {
 			const snappy = await getDocs(collection(db, 'articles')); // will I need to order by timestamp?
 			setArticles(snappy.docs);
 		}
-		work();
+		getArticles();
 	}, []);
 
 	return (
 		<>
 			<Head>
-				<title>goosenet</title>
+				<title>goosenet - Latest Articles</title>
 				<meta name='description' content='Goosenet by 0xGenghisGoose' />
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />

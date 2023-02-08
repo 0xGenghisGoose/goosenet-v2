@@ -1,7 +1,5 @@
-// NEXT TO DO:
-// Hook up db + boilerplate = in progress
-// Create entities for: Article, Author, Project
-// Set up article component && article list page
+// Homepage Content
+// To Do: Rename this something more semantic
 
 export default function Content() {
 	return (
