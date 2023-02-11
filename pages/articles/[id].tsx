@@ -20,23 +20,15 @@ import { db } from '@/firebase';
 // Also makes the fetch from the db & passes as props to article component
 // Essentially the styling for the specific article page
 export default function ArticlePage() {
-	const [articleData, setArticleData] = useState({});
+	const [articleData, setArticleData] = useState<DocumentData>({});
 	const router = useRouter();
 	const { id } = router.query;
-
-	// Get specific article data
-	// useEffect(() => {
-	// 	onSnapshot(collection(db, 'articles', id), (snapshot) =>
-	// 		setArticleData(snapshot.docs)
-	// 	);
-	// }, [id]);
-
-	// TO DO: Figure out how to pull a single document from Firebase based on id from routers
 
 	useEffect(() => {
 		async function getArticle() {
 			const snappy = await getDoc(doc(db, 'articles', id)); // will I need to order by timestamp?
-			setArticleData(snappy.docs);
+			setArticleData(snappy.data());
+			console.log(articleData);
 		}
 		getArticle();
 	}, []);
