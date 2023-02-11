@@ -6,27 +6,21 @@ import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Article from '@/components/Article';
 
-import {
-	getDocs,
-	getDoc,
-	collection,
-	DocumentData,
-	onSnapshot,
-	doc,
-} from 'firebase/firestore';
+import { getDoc, DocumentData, doc } from 'firebase/firestore';
 import { db } from '@/firebase';
 
 // This will be the specific article page, that renders the article component in the layout (use std layout)
 // Also makes the fetch from the db & passes as props to article component
 // Essentially the styling for the specific article page
 export default function ArticlePage() {
-	const [articleData, setArticleData] = useState<DocumentData>({});
+	const [articleData, setArticleData] = useState<DocumentData | undefined>({});
 	const router = useRouter();
 	const { id } = router.query;
 
 	useEffect(() => {
 		async function getArticle() {
-			const snappy = await getDoc(doc(db, 'articles', id)); // will I need to order by timestamp?
+			const snappy = await getDoc(doc(db, 'articles', id));
+			// To Do: might need to set small timeout here
 			setArticleData(snappy.data());
 			console.log(articleData);
 		}
@@ -49,7 +43,8 @@ export default function ArticlePage() {
 				{/* Hamburger menu for small screens */}
 
 				{/* Article Content */}
-				<div className='border-2 border-green-500'>
+				{/* To Do - style below */}
+				<div className='border-2 border-green-500 flex flex-col h-[70%]'>
 					<Article id={id} article={articleData} />
 				</div>
 
