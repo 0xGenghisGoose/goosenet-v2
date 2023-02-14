@@ -8,9 +8,8 @@ import { getDocs, collection, DocumentData } from 'firebase/firestore';
 import { db } from '@/firebase';
 
 // To Do:
-// Get banner images in there & sizing appropriately
-// Make divs bigger vertically
 // How to get estimated reading times? Would like to incorporate
+// Add pagination for articles
 
 export default function ArticleList() {
 	const [articles, setArticles] = useState<DocumentData[]>([]);

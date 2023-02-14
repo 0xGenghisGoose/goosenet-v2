@@ -3,12 +3,12 @@ import useSWR from 'swr';
 import Nav from '@/components/Nav';
 import FeedCard from '@/components/FeedCard';
 import Footer from '@/components/Footer';
-import { coinAPI, fetcher } from '@/utils';
+import { fullCoinAPI, fetcher } from '@/utils';
 
 // API call to CoinGecko - maps coins out & passes data to individual component - when token selected, routed to own personal page w/ dynamic routing
 
 export default function PriceFeed() {
-	const { data } = useSWR(coinAPI, fetcher);
+	const { data } = useSWR(fullCoinAPI, fetcher);
 
 	return (
 		<>
@@ -19,7 +19,6 @@ export default function PriceFeed() {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			{/* To Do: Move nav out of main? */}
 			<main className='min-h-screen mx-auto border-red-500 border-4 bg-gray-800 text-white relative'>
 				{/* Nav */}
 				<Nav />
@@ -32,6 +31,7 @@ export default function PriceFeed() {
 					Top <span className='text-red-500'>100</span> Tokens By Market Cap
 				</h4>
 
+				{/* To Do: add onclick to be taken to specific asset page */}
 				<div className='justify-center'>
 					<div className='p-2 pb-8 m-4 text-center text-lg min-w-screen'>
 						{data?.map((token: any) => (

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { parseNum } from '@/utils';
 
 type TokenResponse = {
@@ -14,12 +15,16 @@ type TokenResponse = {
 	fully_diluted_valuation: number;
 };
 
+// To Do: add onClick for specific asset page
 export default function FeedCard({ token }: { token: TokenResponse }) {
+	const router = useRouter();
+
 	return (
 		<>
 			<div
 				id={token.id}
-				className='text-white items-center border-b border-red-400/75 p-4 overflow-auto flex content-around hover:bg-slate-700'>
+				className='text-white items-center border-b border-red-400/75 p-4 overflow-auto flex content-around hover:bg-slate-700'
+				onClick={() => router.push(`/tokens/${token.id}`)}>
 				{/* Image */}
 				<img
 					src={token.image}

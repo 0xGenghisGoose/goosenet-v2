@@ -31,7 +31,7 @@ export default function Article({ article }: any) {
 				{/* Back button */}
 				<button
 					className='flex p-2 items-center justify-center mb-2 px-5 rounded-xl bg-red-500 hover:bg-red-400 shadow-md shadow-red-500/40'
-					onClick={() => router.push(`/articles/`)}>
+					onClick={() => router.push(`/ArticleList`)}>
 					<ArrowLeftIcon className='h-4 mr-2' /> Back to articles
 				</button>
 			</div>
