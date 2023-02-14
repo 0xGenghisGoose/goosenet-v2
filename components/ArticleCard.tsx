@@ -4,7 +4,6 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 // To Do: type article response & get rid of any
 // Add banner image
-// Figure out why timestamp from db is pulling weird
 
 export default function ArticleCard({ articles }: any) {
 	const router = useRouter();
