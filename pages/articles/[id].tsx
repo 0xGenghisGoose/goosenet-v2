@@ -43,7 +43,7 @@ export default function ArticlePage() {
 				{/* Hamburger menu for small screens */}
 
 				{/* Article Content */}
-				{/* To Do - style below */}
+
 				<div className='border-2 border-green-500 flex flex-col h-[70%]'>
 					<Article id={id} article={articleData} />
 				</div>
