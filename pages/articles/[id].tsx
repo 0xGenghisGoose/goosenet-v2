@@ -44,7 +44,7 @@ export default function ArticlePage() {
 
 				{/* Article Content */}
 
-				<div className='border-2 border-green-500 flex flex-col'>
+				<div className='flex'>
 					<Article id={id} article={articleData} />
 				</div>
 
