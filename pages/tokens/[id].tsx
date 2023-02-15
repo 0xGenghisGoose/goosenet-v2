@@ -26,7 +26,7 @@ export default function TokenPage() {
 				{/* Nav */}
 				<Nav />
 
-				<div className='border-2 border-orange-400'>
+				<div className='border-2 border-orange-400 flex flex-col h-[100%]'>
 					<Token id={id} token={data} />
 				</div>
 
