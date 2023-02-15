@@ -26,7 +26,7 @@ export default function TokenPage() {
 				{/* Nav */}
 				<Nav />
 
-				<div className='border-2 border-orange-400 flex flex-col h-[100%]'>
+				<div className='border-2 border-orange-400 flex flex-col h-[100%] w-[100%]'>
 					<Token id={id} token={data} />
 				</div>
 
@@ -36,3 +36,5 @@ export default function TokenPage() {
 		</>
 	);
 }
+
+// To Do: Add serverSideProps for this to make the market data call

@@ -15,7 +15,6 @@ type TokenResponse = {
 	fully_diluted_valuation: number;
 };
 
-// To Do: add onClick for specific asset page
 export default function FeedCard({ token }: { token: TokenResponse }) {
 	const router = useRouter();
 
