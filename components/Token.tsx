@@ -1,4 +1,8 @@
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { parseNum } from '@/utils';
+
+dayjs.extend(relativeTime);
 
 export default function Token({ token }: any) {
 	return (
@@ -41,17 +45,43 @@ export default function Token({ token }: any) {
 						Total Volume: ${parseNum(token?.market_data.total_volume.usd)}
 					</h1>
 
-					<h1 className='text-lg'>
+					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
+						Market Cap: ${parseNum(token?.market_data?.market_cap.usd)}
+					</h1>
+
+					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
 						All Time High: ${parseNum(token?.market_data.ath.usd)}{' '}
 						{token?.market_data?.ath_change_percentage > 0 ? (
-							<span className='text-green-400 pl-1 font-semibold'>
+							<span className='text-green-400 pl-1'>
 								{token?.market_data.ath_change_percentage.usd.toFixed(2)}%
 							</span>
 						) : (
-							<span className='text-red-500 pl-1 font-semibold'>
+							<span className='text-red-500 pl-1'>
 								{token?.market_data.ath_change_percentage.usd.toFixed(2)}%
 							</span>
 						)}
+						<br />
+						<span className='text-sm'>
+							{dayjs(token?.market_data?.ath_date.usd).format('DD/MM/YYYY')} (
+							{dayjs(token?.market_data?.ath_date.usd).fromNow()})
+						</span>
+					</h1>
+
+					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
+						All Time Low: ${parseNum(token?.market_data.atl.usd)}{' '}
+						{
+							<span className='text-green-400 pl-1'>
+								{parseNum(
+									token?.market_data.atl_change_percentage.usd.toFixed(2)
+								)}
+								%
+							</span>
+						}
+						<br />
+						<span className='text-sm'>
+							{dayjs(token?.market_data?.atl_date.usd).format('DD/MM/YYYY')} (
+							{dayjs(token?.market_data?.atl_date.usd).fromNow()})
+						</span>
 					</h1>
 				</div>
 			</div>

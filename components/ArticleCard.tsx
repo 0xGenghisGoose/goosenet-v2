@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 // To Do: type article response & get rid of any
-// Add banner image
 
 export default function ArticleCard({ articles }: any) {
 	const router = useRouter();
