@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { parseNum } from '@/utils';
+import PercentageTable from './PercentageTable';
+import PriceChart from './PriceChart';
 
 dayjs.extend(relativeTime);
 
@@ -19,36 +21,45 @@ export default function Token({ token }: any) {
 
 			{/* To Do: make the chart div take up as much space as it will, then work through the market data div */}
 			{/* To Do: make styling rule for all these h1s */}
-			<div className='border-2 border-purple-500 flex items-center justify-evenly p-8'>
-				<div className='border border-green-500'>
-					<h1>Chart goes here</h1>
+			{/* To Do: make chart component, import below in same div as market change % data */}
+			<div className='border-2 border-purple-500 flex items-center justify-evenly p-10'>
+				<div className='border border-green-500 p-16 rounded-xl'>
+					<PriceChart id={token?.id} />
+					<PercentageTable token={token} />
 				</div>
 
+				{/* Name */}
 				<div className='border border-yellow-500 rounded-xl p-16'>
 					<h1 className='text-3xl pb-1 text-center text-red-500 border-b border-dotted border-slate-500/80'>
 						{token?.name} Price Statistics
 					</h1>
 
+					{/* Current Price */}
 					<h1 className='text-lg pb-1 pt-6 border-b border-dotted border-slate-500/80'>
 						Current: ${parseNum(token?.market_data.current_price?.usd)}
 					</h1>
 
+					{/* High 24h */}
 					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
 						High (24h): ${parseNum(token?.market_data.high_24h.usd)}
 					</h1>
 
+					{/* Low 24h */}
 					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
 						Low (24h): ${parseNum(token?.market_data.low_24h.usd)}
 					</h1>
 
+					{/* Total Volume */}
 					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
 						Total Volume: ${parseNum(token?.market_data.total_volume.usd)}
 					</h1>
 
+					{/* Market Cap */}
 					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
 						Market Cap: ${parseNum(token?.market_data?.market_cap.usd)}
 					</h1>
 
+					{/* ATH + date */}
 					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
 						All Time High: ${parseNum(token?.market_data.ath.usd)}{' '}
 						{token?.market_data?.ath_change_percentage > 0 ? (
@@ -67,6 +78,7 @@ export default function Token({ token }: any) {
 						</span>
 					</h1>
 
+					{/* ATL + date */}
 					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
 						All Time Low: ${parseNum(token?.market_data.atl.usd)}{' '}
 						{

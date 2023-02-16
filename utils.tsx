@@ -21,3 +21,7 @@ export const fullCoinAPI =
 
 // API Endpoint by ID
 export const idCoinAPI = 'https://api.coingecko.com/api/v3/coins';
+
+// API endpoint for time series data
+export const timeSeries24hAPI = (token: string): string =>
+	`https://api.coingecko.com/api/v3/coins/${token}/market_chart?vs_currency=usd&days=1`;
