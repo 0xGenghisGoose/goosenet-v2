@@ -25,9 +25,9 @@ export default function Token({ token }: any) {
 						{token?.name} Price Statistics
 					</h1>
 
-					{/* <h1 className='text-lg pb-1 pt-6 border-b border-dotted border-slate-500/80'>
+					<h1 className='text-lg pb-1 pt-6 border-b border-dotted border-slate-500/80'>
 						Current: ${parseNum(token?.market_data.current_price?.usd)}
-					</h1> */}
+					</h1>
 
 					<h1 className='text-lg py-1 border-b border-dotted border-slate-500/80'>
 						High (24h): ${parseNum(token?.market_data.high_24h.usd)}
@@ -43,13 +43,13 @@ export default function Token({ token }: any) {
 
 					<h1 className='text-lg'>
 						All Time High: ${parseNum(token?.market_data.ath.usd)}{' '}
-						{token?.market_data.ath_change_percentage > 0 ? (
-							<span className='text-green-400'>
-								{token?.market_data.ath_change_percentage.toFixed(2)}%
+						{token?.market_data?.ath_change_percentage > 0 ? (
+							<span className='text-green-400 pl-1 font-semibold'>
+								{token?.market_data.ath_change_percentage.usd.toFixed(2)}%
 							</span>
 						) : (
-							<span className='text-red-500'>
-								{token?.market_data.ath_change_percentage.toFixed(2)}%
+							<span className='text-red-500 pl-1 font-semibold'>
+								{token?.market_data.ath_change_percentage.usd.toFixed(2)}%
 							</span>
 						)}
 					</h1>
