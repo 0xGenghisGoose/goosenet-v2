@@ -16,7 +16,8 @@ export default function TokenPage() {
 	return (
 		<>
 			<Head>
-				<title>{id}</title>
+				{/* @ts-ignore */}
+				<title>goosenet - {id?.toUpperCase()}</title>
 				<meta name='description' content='Goosenet by 0xGenghisGoose' />
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />

@@ -25,3 +25,15 @@ export const idCoinAPI = 'https://api.coingecko.com/api/v3/coins';
 // API endpoint for time series data
 export const timeSeries24hAPI = (token: string): string =>
 	`https://api.coingecko.com/api/v3/coins/${token}/market_chart?vs_currency=usd&days=1`;
+
+// UNIX => Time Timestamp Converter
+export const toTimeFromUNIX = (timestamp: number): string => {
+	return new Date(timestamp).toLocaleTimeString();
+};
+
+// UNIX => Date Timestamp Converter
+export const toDateFromUNIX = (timestamp: number): string => {
+	let date = new Date(timestamp).toLocaleDateString();
+	console.log(date);
+	return date;
+};
