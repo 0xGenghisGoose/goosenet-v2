@@ -1,11 +1,5 @@
 import useSWR from 'swr';
-import {
-	timeSeries24hAPI,
-	fetcher,
-	toDateFromUNIX,
-	toTimeFromUNIX,
-	parseNum,
-} from '@/utils';
+import { fetcher, toDateFromUNIX, toTimeFromUNIX, parseNum } from '@/utils';
 import {
 	AreaChart,
 	Area,
@@ -17,7 +11,10 @@ import {
 } from 'recharts';
 
 export default function PriceChart({ id }: any) {
-	const { data } = useSWR(timeSeries24hAPI(id), fetcher);
+	const { data } = useSWR(
+		`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=1`,
+		fetcher
+	);
 
 	const CustomTooltip = ({ active, payload }: any) => {
 		if (active && payload && payload.length) {
@@ -36,7 +33,10 @@ export default function PriceChart({ id }: any) {
 	return (
 		<div>
 			{data && (
-				<ResponsiveContainer className='border-2 border-yellow-400'>
+				<ResponsiveContainer
+					className='border-2 border-yellow-400'
+					height={400}
+					width={800}>
 					<AreaChart
 						data={data?.prices}
 						margin={{ top: 15, right: 15, bottom: 5, left: -45 }}>
@@ -66,17 +66,8 @@ export default function PriceChart({ id }: any) {
 
 						<Tooltip content={<CustomTooltip />} />
 
-						<XAxis
-							// label='Past 24 Hours'
-							tick={false}
-						/>
-						<YAxis
-							type='number'
-							// tickCount={6}
-							// label='Price'
-							tick={false}
-							domain={['dataMin', 'dataMax']}
-						/>
+						<XAxis tick={false} />
+						<YAxis type='number' tick={false} domain={['dataMin', 'dataMax']} />
 					</AreaChart>
 				</ResponsiveContainer>
 			)}

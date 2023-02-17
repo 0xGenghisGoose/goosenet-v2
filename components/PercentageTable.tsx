@@ -1,7 +1,10 @@
+// To Do: Borders, shadows etc on modals
+// To Do: Make sizing responsive
+
 export default function PercentageTable({ token }: any) {
 	return (
 		<>
-			<table className='border border-pink-300 mt-8'>
+			<table className='border border-pink-300 mt-4 mx-6'>
 				<thead>
 					<tr className='bg-slate-500/50 p-1'>
 						<th className='p-1'>24h</th>
@@ -14,19 +17,19 @@ export default function PercentageTable({ token }: any) {
 
 				<tbody>
 					<tr className='bg-slate-500/70'>
-						<td className='p-1 px-3'>
+						<td>
 							{parsePercentage(token?.market_data.price_change_percentage_24h)}
 						</td>
-						<td className='p-1 px-3'>
+						<td className='p-1'>
 							{parsePercentage(token?.market_data.price_change_percentage_7d)}
 						</td>
-						<td className='p-1 px-3'>
+						<td className='p-1'>
 							{parsePercentage(token?.market_data.price_change_percentage_14d)}
 						</td>
-						<td className='p-1 px-3'>
+						<td className='p-1'>
 							{parsePercentage(token?.market_data.price_change_percentage_30d)}
 						</td>
-						<td className='p-1 px-3'>
+						<td className='p-1'>
 							{parsePercentage(token?.market_data.price_change_percentage_1y)}
 						</td>
 					</tr>

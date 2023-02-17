@@ -12,8 +12,8 @@ export function parseNum(n: number): string {
 }
 
 // Fetcher for SWR
-export const fetcher = (apiURL: string) =>
-	fetch(apiURL).then((res) => res.json());
+export const fetcher = async (apiURL: string) =>
+	await fetch(apiURL).then((res) => res.json());
 
 // API Endpoint for price feeds
 export const fullCoinAPI =
@@ -21,10 +21,6 @@ export const fullCoinAPI =
 
 // API Endpoint by ID
 export const idCoinAPI = 'https://api.coingecko.com/api/v3/coins';
-
-// API endpoint for time series data
-export const timeSeries24hAPI = (token: string): string =>
-	`https://api.coingecko.com/api/v3/coins/${token}/market_chart?vs_currency=usd&days=1`;
 
 // UNIX => Time Timestamp Converter
 export const toTimeFromUNIX = (timestamp: number): string => {

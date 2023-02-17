@@ -1,12 +1,12 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { parseNum } from '@/utils';
 import PercentageTable from './PercentageTable';
 import PriceChart from './PriceChart';
+import { parseNum } from '@/utils';
 
 dayjs.extend(relativeTime);
 
-export default function Token({ token }: any) {
+export default function Token({ token, id }: any) {
 	return (
 		<>
 			<div className='flex items-center justify-center space-x-6 p-4'>
@@ -19,12 +19,11 @@ export default function Token({ token }: any) {
 				</h1>
 			</div>
 
-			{/* To Do: make the chart div take up as much space as it will, then work through the market data div */}
 			{/* To Do: make styling rule for all these h1s */}
-			{/* To Do: make chart component, import below in same div as market change % data */}
-			<div className='border-2 border-purple-500 flex items-center justify-evenly p-10'>
-				<div className='border border-green-500 p-16 rounded-xl'>
-					<PriceChart id={token?.id} />
+			<div className='border-2 border-purple-500 flex items-center justify-evenly p-14'>
+				<div className='border border-green-500 p-16 rounded-xl flex flex-col text-center'>
+					{/* <h1>{token?.name} 24 Hour Price Chart</h1> */}
+					<PriceChart id={id} />
 					<PercentageTable token={token} />
 				</div>
 
