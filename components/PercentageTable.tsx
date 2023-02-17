@@ -1,5 +1,6 @@
 // To Do: Borders, shadows etc on modals
 // To Do: Make sizing responsive
+// To Do: actually fix this thing too - spacing looks wrong
 
 export default function PercentageTable({ token }: any) {
 	return (
