@@ -34,7 +34,7 @@ export default function PriceChart({ id }: any) {
 		<div>
 			{data && (
 				<ResponsiveContainer
-					className='border-2 border-yellow-400'
+					className='border rounded-lg shadow-xl border-red-500'
 					height={400}
 					width={800}>
 					<AreaChart

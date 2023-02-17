@@ -4,7 +4,7 @@
 export default function PercentageTable({ token }: any) {
 	return (
 		<>
-			<table className='border border-pink-300 mt-4 mx-6'>
+			<table className='mt-4 mx-6 shadow-xl'>
 				<thead>
 					<tr className='bg-slate-500/50 p-1'>
 						<th className='p-1'>24h</th>
