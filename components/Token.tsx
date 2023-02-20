@@ -22,6 +22,7 @@ export default function Token({ token, id }: any) {
 			{/* To Do: make styling rule for all these h1s */}
 			{/* To Do: Borders & overall layout touch up */}
 			{/* Price statistics - break into 2 modals (stacked, flex-col) all under price statistics title */}
+			{/* To Do: Move all price statistics modals into own coponent? */}
 			<div className='border-2 border-purple-500 flex items-center justify-between p-8'>
 				<div className='p-8 rounded-xl flex flex-col text-center'>
 					<h1 className='pb-4 text-2xl text-red-500 tracking-wider'>
