@@ -16,13 +16,16 @@ export default function Token({ token, id }: any) {
 					className='text-center'></img>
 				<h1 className='text-2xl text-red-500 tracking-wider'>
 					{token?.name} - {token?.symbol.toUpperCase()}
+					<br />
+					<span className='text-lg'>
+						Market Cap Rank: #{token?.market_cap_rank}
+					</span>
 				</h1>
 			</div>
 
 			{/* To Do: make styling rule for all these h1s */}
 			{/* To Do: Borders & overall layout touch up */}
-			{/* Price statistics - break into 2 modals (stacked, flex-col) all under price statistics title */}
-			{/* To Do: Move all price statistics modals into own coponent? */}
+
 			<div className='border-2 border-purple-500 flex items-center justify-between p-8'>
 				<div className='p-8 rounded-xl flex flex-col text-center'>
 					<h1 className='pb-4 text-2xl text-red-500 tracking-wider'>
@@ -33,13 +36,13 @@ export default function Token({ token, id }: any) {
 				</div>
 
 				{/* Name */}
-				<div className='border border-red-500 rounded-xl shadow-xl bg-slate-800 p-14'>
+				<div className='border border-red-500 rounded-xl shadow-xl bg-slate-800 px-14 py-8'>
 					<h1 className='text-3xl pb-2 text-center text-red-500 border-b border-dotted border-slate-500/80'>
 						{token?.name} Price Statistics
 					</h1>
 
 					{/* Current Price */}
-					<h1 className='text-md pb-1 pt-6 border-b border-dotted border-slate-500/80'>
+					<h1 className='text-md pb-1 pt-9 border-b border-dotted border-slate-500/80'>
 						<span className='text-lg'>Current:</span> $
 						{parseNum(token?.market_data.current_price?.usd)}
 					</h1>
