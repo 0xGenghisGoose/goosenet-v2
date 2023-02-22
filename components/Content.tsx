@@ -4,8 +4,8 @@
 export default function Content() {
 	return (
 		<>
-			<div className='flex shadow-sm justify-center mt-40 py-24 px-36 max-w-[75%] mx-auto'>
-				<p className='p-8 text-xl font-semibold tracking-wider leading-10 w-[65%]'>
+			<div className='flex shadow-sm justify-center mt-2 md:mt-36 py-6 md:py-24 px-4 md:px-36 max-w-[75%] mx-auto'>
+				<p className='p-8 text-lg md:text-xl font-semibold tracking-wide md:tracking-wider leading-10 w-[85%] md:w-[65%]'>
 					welcome to <span className='text-red-500'>goosenet</span>, a
 					collection of short write ups on multiple random fucking protocols &
 					tokens as well as some schizo musings from a degen just tryna keep
