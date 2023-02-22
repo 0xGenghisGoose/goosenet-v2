@@ -1,6 +1,7 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 // To Do: incorporate search functionality
+// To Do: need to make all md things lg && then make a md responsive pt
 export default function SearchBar() {
 	return (
 		<>
