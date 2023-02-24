@@ -37,5 +37,3 @@ export default function TokenPage() {
 		</>
 	);
 }
-
-// To Do: Add serverSideProps for this to make the market data call

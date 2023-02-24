@@ -1,11 +1,9 @@
-// To Do: Borders, shadows etc on modals
-// To Do: Make sizing responsive
-// To Do: actually fix this thing too - spacing looks wrong
+// To Do: fix TokenResponse
 
 export default function PercentageTable({ token }: any) {
 	return (
 		<>
-			<table className='mt-4 mx-6 shadow-xl'>
+			<table className='mt-6 lg:mt-4 mx-6 shadow-xl'>
 				<thead>
 					<tr className='bg-slate-500/50 p-1'>
 						<th className='p-1'>24h</th>
@@ -21,16 +19,16 @@ export default function PercentageTable({ token }: any) {
 						<td>
 							{parsePercentage(token?.market_data.price_change_percentage_24h)}
 						</td>
-						<td className='p-1'>
+						<td>
 							{parsePercentage(token?.market_data.price_change_percentage_7d)}
 						</td>
-						<td className='p-1'>
+						<td>
 							{parsePercentage(token?.market_data.price_change_percentage_14d)}
 						</td>
-						<td className='p-1'>
+						<td>
 							{parsePercentage(token?.market_data.price_change_percentage_30d)}
 						</td>
-						<td className='p-1'>
+						<td>
 							{parsePercentage(token?.market_data.price_change_percentage_1y)}
 						</td>
 					</tr>
