@@ -8,7 +8,7 @@ export default function Article({ article }: any) {
 	const router = useRouter();
 
 	return (
-		<div className='text-center border border-purple-400 mb-56'>
+		<div className='text-center border border-purple-400 mb-28 lg:mb-56 xl:mb-4'>
 			{/* Banner Image */}
 			<div className='h-2/3'>
 				<img
@@ -16,7 +16,7 @@ export default function Article({ article }: any) {
 					alt='banner-img'
 					className='object-fit w-full'></img>
 			</div>
-			<div className='lg:p-7 md:-mt-20 lg:m-4 lg:mt-0 justify-center border border-yellow-400'>
+			<div className='p-7 md:-mt-20 sm:mb-34 -mt-20 lg:-mt-36 xl:-mt-4 lg:m-4 justify-center border border-yellow-400'>
 				{/* Title, time to read, timestamp */}
 				<div className='lg:pb-4 font-semibold lg:font-extrabold lg:tracking-widest lg:text-3xl text-red-500'>
 					{article?.title}
@@ -26,7 +26,7 @@ export default function Article({ article }: any) {
 					{dayjs.unix(article?.timestamp).format('MMMM D, 2023')}
 				</div>
 				{/* Article copy */}
-				<p className='p-4 m-2 mx-4'>{article?.content}</p>
+				<p className='p-4 m-2 mx-4 text-sm md:text-lg'>{article?.content}</p>
 
 				{/* Back button */}
 				<button
