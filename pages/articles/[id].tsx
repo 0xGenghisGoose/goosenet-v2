@@ -9,9 +9,6 @@ import Article from '@/components/Article';
 import { getDoc, DocumentData, doc } from 'firebase/firestore';
 import { db } from '@/firebase';
 
-// This will be the specific article page, that renders the article component in the layout (use std layout)
-// Also makes the fetch from the db & passes as props to article component
-// Essentially the styling for the specific article page
 export default function ArticlePage() {
 	const [articleData, setArticleData] = useState<DocumentData | undefined>({});
 	const router = useRouter();
@@ -19,6 +16,7 @@ export default function ArticlePage() {
 
 	useEffect(() => {
 		async function getArticle() {
+			// @ts-ignore
 			const snappy = await getDoc(doc(db, 'articles', id));
 			// To Do: might need to set small timeout here
 			setArticleData(snappy.data());
