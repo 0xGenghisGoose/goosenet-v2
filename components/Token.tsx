@@ -24,90 +24,93 @@ export default function Token({ token, id }: any) {
 			</div>
 
 			{/* To Do: make styling rule for all these h1s */}
+			{/* To Do: target only small screens for flex-col.. */}
 
-			<div className='border-2 border-purple-500 flex-col lg:flex items-center justify-between p-8'>
-				<div className='p-4 lg:p-8 rounded-xl flex flex-col text-center'>
-					<h1 className='pb-4 text-md lg:text-2xl text-red-500 tracking-wider'>
-						Price Chart (24hr)
-					</h1>
-					<PriceChart id={id} />
-					<PercentageTable token={token} />
-				</div>
+			<div className='border-2 border-purple-500 flex-col items-center justify-evenly p-8'>
+				<div className='md:flex border border-green-300'>
+					<div className='p-4 lg:p-8 rounded-xl flex flex-col text-center'>
+						<h1 className='pb-4 text-md lg:text-2xl text-red-500 tracking-wider'>
+							Price Chart (24hr)
+						</h1>
+						<PriceChart id={id} />
+						<PercentageTable token={token} />
+					</div>
 
-				{/* Name */}
-				<div className='border border-red-500 rounded-xl shadow-xl bg-slate-800 px-14 py-8 mb-8 lg:mb-0'>
-					<h1 className='text-xl lg:text-3xl pb-2 text-center text-red-500 border-b border-dotted border-slate-500/80'>
-						{token?.name} Price Statistics
-					</h1>
+					{/* Name */}
+					<div className='border border-red-500 rounded-xl shadow-xl bg-slate-800 px-14 py-8 mb-8 lg:mb-0'>
+						<h1 className='text-xl lg:text-3xl pb-2 text-center text-red-500 border-b border-dotted border-slate-500/80'>
+							{token?.name} Price Statistics
+						</h1>
 
-					{/* Current Price */}
-					<h1 className='text-md pb-1 pt-9 border-b border-dotted border-slate-500/80'>
-						<span className='text-md lg:text-lg'>Current:</span> $
-						{parseNum(token?.market_data.current_price?.usd)}
-					</h1>
+						{/* Current Price */}
+						<h1 className='text-md pb-1 pt-9 border-b border-dotted border-slate-500/80'>
+							<span className='text-md lg:text-lg'>Current:</span> $
+							{parseNum(token?.market_data.current_price?.usd)}
+						</h1>
 
-					{/* High 24h */}
-					<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
-						<span className='text-md lg:text-lg'>High (24h):</span> $
-						{parseNum(token?.market_data.high_24h.usd)}
-					</h1>
+						{/* High 24h */}
+						<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
+							<span className='text-md lg:text-lg'>High (24h):</span> $
+							{parseNum(token?.market_data.high_24h.usd)}
+						</h1>
 
-					{/* Low 24h */}
-					<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
-						<span className='text-md lg:text-lg'>Low (24h):</span> $
-						{parseNum(token?.market_data.low_24h.usd)}
-					</h1>
+						{/* Low 24h */}
+						<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
+							<span className='text-md lg:text-lg'>Low (24h):</span> $
+							{parseNum(token?.market_data.low_24h.usd)}
+						</h1>
 
-					{/* Total Volume */}
-					<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
-						<span className='text-md lg:text-lg'>Total Volume:</span> $
-						{parseNum(token?.market_data.total_volume.usd)}
-					</h1>
+						{/* Total Volume */}
+						<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
+							<span className='text-md lg:text-lg'>Total Volume:</span> $
+							{parseNum(token?.market_data.total_volume.usd)}
+						</h1>
 
-					{/* Market Cap */}
-					<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
-						<span className='text-md lg:text-lg'>Market Cap:</span> $
-						{parseNum(token?.market_data?.market_cap.usd)}
-					</h1>
+						{/* Market Cap */}
+						<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
+							<span className='text-md lg:text-lg'>Market Cap:</span> $
+							{parseNum(token?.market_data?.market_cap.usd)}
+						</h1>
 
-					{/* ATH + date */}
-					<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
-						<span className='text-md lg:text-lg'>All Time High:</span> $
-						{parseNum(token?.market_data.ath.usd)}{' '}
-						{token?.market_data?.ath_change_percentage > 0 ? (
-							<span className='text-green-400 pl-1'>
-								{token?.market_data.ath_change_percentage.usd.toFixed(2)}%
+						{/* ATH + date */}
+						<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
+							<span className='text-md lg:text-lg'>All Time High:</span> $
+							{parseNum(token?.market_data.ath.usd)}{' '}
+							{token?.market_data?.ath_change_percentage > 0 ? (
+								<span className='text-green-400 pl-1'>
+									{token?.market_data.ath_change_percentage.usd.toFixed(2)}%
+								</span>
+							) : (
+								<span className='text-red-500 pl-1'>
+									{token?.market_data.ath_change_percentage.usd.toFixed(2)}%
+								</span>
+							)}
+							<br />
+							<span className='text-sm'>
+								{dayjs(token?.market_data?.ath_date.usd).format('DD/MM/YYYY')} (
+								{dayjs(token?.market_data?.ath_date.usd).fromNow()})
 							</span>
-						) : (
-							<span className='text-red-500 pl-1'>
-								{token?.market_data.ath_change_percentage.usd.toFixed(2)}%
-							</span>
-						)}
-						<br />
-						<span className='text-sm'>
-							{dayjs(token?.market_data?.ath_date.usd).format('DD/MM/YYYY')} (
-							{dayjs(token?.market_data?.ath_date.usd).fromNow()})
-						</span>
-					</h1>
+						</h1>
 
-					{/* ATL + date */}
-					<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
-						<span className='text-md lg:text-lg'>All Time Low:</span> $
-						{parseNum(token?.market_data.atl.usd)}{' '}
-						{
-							<span className='text-green-400 pl-1'>
-								{parseNum(
-									token?.market_data.atl_change_percentage.usd.toFixed(2)
-								)}
-								%
+						{/* ATL + date */}
+						<h1 className='text-md py-2 border-b border-dotted border-slate-500/80'>
+							<span className='text-md lg:text-lg'>All Time Low:</span> $
+							{parseNum(token?.market_data.atl.usd)}{' '}
+							{
+								<span className='text-green-400 pl-1'>
+									{parseNum(
+										token?.market_data.atl_change_percentage.usd.toFixed(2)
+									)}
+									%
+								</span>
+							}
+							<br />
+							<span className='text-sm'>
+								{dayjs(token?.market_data?.atl_date.usd).format('DD/MM/YYYY')} (
+								{dayjs(token?.market_data?.atl_date.usd).fromNow()})
 							</span>
-						}
-						<br />
-						<span className='text-sm'>
-							{dayjs(token?.market_data?.atl_date.usd).format('DD/MM/YYYY')} (
-							{dayjs(token?.market_data?.atl_date.usd).fromNow()})
-						</span>
-					</h1>
+						</h1>
+					</div>
 				</div>
 			</div>
 		</>
