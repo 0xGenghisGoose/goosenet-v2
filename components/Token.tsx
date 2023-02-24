@@ -24,12 +24,11 @@ export default function Token({ token, id }: any) {
 			</div>
 
 			{/* To Do: make styling rule for all these h1s */}
-			{/* To Do: target only small screens for flex-col.. */}
 
-			<div className='border-2 border-purple-500 flex-col items-center justify-evenly p-8'>
-				<div className='md:flex border border-green-300'>
+			<div className='border-2 border-purple-500 flex-col items-center p-8'>
+				<div className='md:flex md:mb-6 grow justify-evenly'>
 					<div className='p-4 lg:p-8 rounded-xl flex flex-col text-center'>
-						<h1 className='pb-4 text-md lg:text-2xl text-red-500 tracking-wider'>
+						<h1 className='pb-4 text-md lg:text-3xl text-red-500 tracking-wider'>
 							Price Chart (24hr)
 						</h1>
 						<PriceChart id={id} />
@@ -37,7 +36,7 @@ export default function Token({ token, id }: any) {
 					</div>
 
 					{/* Name */}
-					<div className='border border-red-500 rounded-xl shadow-xl bg-slate-800 px-14 py-8 mb-8 lg:mb-0'>
+					<div className='border border-red-500 rounded-xl shadow-xl bg-slate-800 px-14 py-8 mb-8 lg:mb-4'>
 						<h1 className='text-xl lg:text-3xl pb-2 text-center text-red-500 border-b border-dotted border-slate-500/80'>
 							{token?.name} Price Statistics
 						</h1>

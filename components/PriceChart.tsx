@@ -31,12 +31,12 @@ export default function PriceChart({ id }: any) {
 	};
 
 	return (
-		<div>
+		<div className='w-[100%] h-[100%] md:m-0.5 lg:m-1 mx-auto'>
 			{data && (
 				<ResponsiveContainer
 					className='border rounded-lg shadow-xl border-red-500'
-					height='100%'
-					width='100%'>
+					width='99%'
+					height={400}>
 					<AreaChart
 						data={data?.prices}
 						margin={{ top: 15, right: 15, bottom: 5, left: -45 }}>
