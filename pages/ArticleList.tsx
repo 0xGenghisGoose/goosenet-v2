@@ -16,7 +16,7 @@ export default function ArticleList() {
 
 	useEffect(() => {
 		async function getArticles() {
-			const snappy = await getDocs(collection(db, 'articles')); // will I need to order by timestamp?
+			const snappy = await getDocs(collection(db, 'articles'));
 			setArticles(snappy.docs);
 		}
 		getArticles();
@@ -35,7 +35,7 @@ export default function ArticleList() {
 				{/* Nav */}
 				<Nav />
 
-				<h2 className='text-center text-4xl text-red-500 font-bold tracking-widest py-4 mx-96 border-b border-dotted border-slate-500/60'>
+				<h2 className='text-center text-2xl lg:text-4xl text-red-500 font-bold tracking-widest py-4 lg:mx-96 border-b border-dotted border-slate-500/60'>
 					LATEST ARTICLES
 				</h2>
 

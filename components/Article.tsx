@@ -8,7 +8,7 @@ export default function Article({ article }: any) {
 	const router = useRouter();
 
 	return (
-		<div className='text-center'>
+		<div className='text-center border border-purple-400 mb-56'>
 			{/* Banner Image */}
 			<div className='h-2/3'>
 				<img
@@ -16,9 +16,9 @@ export default function Article({ article }: any) {
 					alt='banner-img'
 					className='object-fit w-full'></img>
 			</div>
-			<div className='lg:p-7 lg:m-4 lg:mt-0 justify-center'>
+			<div className='lg:p-7 md:-mt-20 lg:m-4 lg:mt-0 justify-center border border-yellow-400'>
 				{/* Title, time to read, timestamp */}
-				<div className='lg:pb-4 lg:font-extrabold lg:tracking-widest lg:text-3xl text-red-500'>
+				<div className='lg:pb-4 font-semibold lg:font-extrabold lg:tracking-widest lg:text-3xl text-red-500'>
 					{article?.title}
 				</div>
 
@@ -32,7 +32,7 @@ export default function Article({ article }: any) {
 				<button
 					className='flex p-2 items-center justify-center lg:mb-2 px-5 rounded-xl bg-red-500 hover:bg-red-400 shadow-md shadow-red-500/40'
 					onClick={() => router.push(`/ArticleList`)}>
-					<ArrowLeftIcon className='lg:h-4 lg:mr-2' /> Back to articles
+					<ArrowLeftIcon className='h-4 lg:mr-2' /> Back to articles
 				</button>
 			</div>
 		</div>
