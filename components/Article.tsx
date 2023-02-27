@@ -2,8 +2,6 @@ import dayjs from 'dayjs';
 import { useRouter } from 'next/router';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
-// To Do: Type the article response
-
 // NEXT: Add tags into db for articles
 // Fix response types
 // Make component to display tags on article page
