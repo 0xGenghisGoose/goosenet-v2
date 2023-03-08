@@ -18,7 +18,6 @@ export default function ArticlePage() {
 		async function getArticle() {
 			// @ts-ignore
 			const snappy = await getDoc(doc(db, 'articles', id));
-			e;
 			setArticleData(snappy.data());
 			console.log(articleData);
 		}
