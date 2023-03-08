@@ -1,7 +1,6 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
 
-// Might need to make state from db shareable across whole app
 export default function SearchBar() {
 	const [searchInput, setSearchInput] = useState('');
 	const [enterSearch, setEnterSearch] = useState('');

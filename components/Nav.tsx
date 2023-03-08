@@ -13,7 +13,9 @@ export default function Nav() {
 				</Link>
 
 				<ul className='flex justify-left items-center text-sm md:text-lg lg:space-x-16 space-x-8 p-4 ml-auto'>
-					<li className='hover:text-red-500'>Projects</li>
+					<li className='hover:text-red-500'>
+						<Link href='/ReadingList'>Reading List</Link>
+					</li>
 					<li className='hover:text-red-500'>
 						<Link href='/PriceFeed' className='hover:text-red-500'>
 							Price Feed

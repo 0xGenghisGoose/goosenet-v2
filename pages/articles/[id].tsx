@@ -18,7 +18,7 @@ export default function ArticlePage() {
 		async function getArticle() {
 			// @ts-ignore
 			const snappy = await getDoc(doc(db, 'articles', id));
-			// To Do: might need to set small timeout here
+			e;
 			setArticleData(snappy.data());
 			console.log(articleData);
 		}
@@ -37,8 +37,6 @@ export default function ArticlePage() {
 			<main className='min-h-screen mx-auto border-red-500 border-4 bg-gray-800 text-white relative'>
 				{/* Nav */}
 				<Nav />
-
-				{/* Hamburger menu for small screens */}
 
 				{/* Article Content */}
 
