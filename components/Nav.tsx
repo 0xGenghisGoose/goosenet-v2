@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import SearchBar from './SearchBar';
 
+// making a comment as a check
+
 export default function Nav() {
 	return (
 		<div className='sticky top-0 w-full p-2 md:p-4 bg-gradient-to-r from-gray-700 via-slate-600 to-slate-700 border-b border-red-400/70'>
